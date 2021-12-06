@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JavaScript/bord.js"></script>
+    <title>Boka bord</title>
+  </head>
+  <body onload="myFunction();">
+    <nav class="navBar">
+      <ul class="grid">
+      <li><a href="/">Hem</a></li>
+      <li><a href="/meny">Meny</a></li>
+      <li><a href="/bord">Boka bord</a></li>
+      <li><a href="/oppettider">Öppettider & kontakt</a></li>
+      <li><a href="/recensioner">Recensioner</a></li>
+      <li>
+          <a href="http://www.facebook.se"
+            ><img width="25" src="../images/fbLogo.png" alt="FB Logo"
+          /></a>
+        </li>
+        <li>
+          <a href="http://instagram.com"
+            ><img width="25" src="../images/instaLogo.png" alt="Insta Logo"
+          /></a>
+        </li>
+      </ul>
+    </nav>
+    <h1 class="type">Boka bord</h1>
+    <div class="bookingform">
+      <form action="/booked"); method="post">
+        <p>
+          <label for="name"><b>För- och Efternamn:</b></label>
+        </p>
+        <input class="br px1" id="name" name="name" type="text" size="50" />
+        <p>
+          <label for="mail"><b>Email:</b></label>
+          <input class="br px1" id="mail" type="email" size="50" />
+        </p>
+
+        <p>
+          <label for="ph"><b>Telefon:</b></label>
+        </p>
+        <input class="br px1" id="ph" type="tel" />
+        <p>
+          <label for="pax"><b>Antal personer i sällskapet:</b></label>
+        </p>
+        <input class="br px1" id="pax" type="number" list="defaultNumbers" />
+        <span class="validity"></span>
+        <p>
+          <label for="comment"><b>Övrigt:</b></label>
+        </p>
+        <textarea
+          class="br px1"
+          id="comment"
+          rows="6"
+          cols="35"
+          minlength="2"
+          maxlength="500"
+        ></textarea>
+        <datalist id="defaultNumbers">
+          <option value="1"></option>
+          <option value="2"></option>
+          <option value="3"></option>
+          <option value="4"></option>
+          <option value="5"></option>
+          <option value="6"></option>
+          <option value="7"></option>
+          <option value="8"></option>
+          <option value="9"></option>
+          <option value="10"></option>
+        </datalist>
+      </form>
+    </div>
+
+    <div class="kalender">
+      <input
+        class="br p1"
+        type="datetime-local"
+        id="datepicker"
+        required
+      /><br /><br />
+      <form onsubmit="alert('Din bokning är mottagen!');">
+        <button class="butt butt2 br" style="vertical-align: middle">
+          <span>Boka </span>
+        </button>
+        <script>
+          inputfield = document.getElementById("datepicker");
+          var date = new Date();
+          var hours = date.getHours();
+          if (hours < 10) {
+            hours = "0" + hours;
+          }
+          datestring =
+            date.getFullYear() +
+            "-" +
+            (date.getMonth() + 1) +
+            "-" +
+            date.getDate() +
+            "T" +
+            hours +
+            ":" +
+            date.getSeconds();
+          inputfield.setAttribute("min", datestring);
+        </script>
+      </form>
+      <div class="br p1 kalender">
+        <p>
+          Vill ni boka bord för mer än tio personer?<br />Ring eller maila oss
+          på:<br />0140-44 45 10<br />info@veganus.se
+        </p>
+      </div>
+    </div>
+    <footer class="fot">
+      <a href="https://www.ubereats.com/se"
+        ><img width="25" alt="uber" src="../images/ubereats.png"
+      /></a>
+      <a href="https://www.foodora.se/"
+        ><img width="25" alt="foodora" src="../images/foodora.png"
+      /></a>
+      <a href="https://wolt.com/sv"
+        ><img width="25" alt="wolt" src="../images/wolt.png"
+      /></a>
+    </footer>
+  </body>
+</html>
