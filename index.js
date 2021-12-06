@@ -30,6 +30,7 @@ app.post("/booked", (req,res) => {
     let tel = req.body.tel;
     let pax = req.body.pax;
     let comment = req.body.comment;
+    let cal = req.body.cal;
            
     let booking = {        
         name,
@@ -37,6 +38,7 @@ app.post("/booked", (req,res) => {
         tel,
         pax,
         comment,
+        cal,
     }   
 
     let readJsonFile = fs.readFileSync(jsonFile);
@@ -48,7 +50,7 @@ app.post("/booked", (req,res) => {
         if (err) throw err;
     });
 
-    res.send("<script>var timer = setTimeout(function() {window.location='http://localhost:5000/'}, 500);</script>");
+    //res.send("<script>var timer = setTimeout(function() {window.location='http://localhost:5000/bord'}, 500);</script>");
 });
 app.get("/oppettider", (req,res) => {
     res.sendFile(__dirname + "/public/HTML/oppettider.html"); 

@@ -179,6 +179,11 @@ th {
 *::-webkit-scrollbar-thumb:hover {
   background: #dd8808d9;
 }
+.big {
+  width: 98%;
+  height: 75%;
+  margin-top: -2%;
+}
 .bookingform {
   float: left;
   margin-top: 0%;
