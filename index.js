@@ -6,7 +6,7 @@ const { Console } = require("console");
 app.use(express.static("public"));
 const port = 5000;
 app.use(express.urlencoded({ extended: true }));
-const jsonFile = "public/JavaScript/bookings.json";
+const jsonFile = "public/bookings.json";
 
 app.get("/", (req, res) => {  
     res.sendFile(__dirname + "/public/HTML/Index.html");  
@@ -48,7 +48,7 @@ app.post("/booked", (req,res) => {
         if (err) throw err;
     });
 
-    res.send("<html><body><p>Inlägg skickat!</p><p>Du skickas nu till startsidan</p><script>var timer = setTimeout(function() {window.location='http://localhost:3000/HTML/index.html'}, 3000);</script></body></html>");
+    res.send("<script>var timer = setTimeout(function() {window.location='http://localhost:5000/'}, 500);</script>");
 });
 app.get("/oppettider", (req,res) => {
     res.sendFile(__dirname + "/public/HTML/oppettider.html"); 
