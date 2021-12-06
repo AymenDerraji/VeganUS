@@ -11,55 +11,29 @@
   <body onload="myFunction();">
     <nav class="navBar">
       <ul class="grid">
-      <li><a href="/">Hem</a></li>
-      <li><a href="/meny">Meny</a></li>
-      <li><a href="/bord">Boka bord</a></li>
-      <li><a href="/oppettider">Öppettider & kontakt</a></li>
-      <li><a href="/recensioner">Recensioner</a></li>
-      <li>
-          <a href="http://www.facebook.se"
-            ><img width="25" src="../images/fbLogo.png" alt="FB Logo"
-          /></a>
-        </li>
-        <li>
-          <a href="http://instagram.com"
-            ><img width="25" src="../images/instaLogo.png" alt="Insta Logo"
-          /></a>
-        </li>
+        <li><a href="/">Hem</a></li>
+        <li><a href="/meny">Meny</a></li>
+        <li><a href="/bord">Boka bord</a></li>
+        <li><a href="/oppettider">Öppettider & kontakt</a></li>
+        <li><a href="/recensioner">Recensioner</a></li>
+        <li><a href="http://www.facebook.se"><img width="25" src="../images/fbLogo.png" alt="FB Logo"/></a></li>
+        <li><a href="http://instagram.com"><img width="25" src="../images/instaLogo.png" alt="Insta Logo"/></a></li>
       </ul>
     </nav>
     <h1 class="type">Boka bord</h1>
     <div class="bookingform">
-      <form action="/booked"); method="post">
-        <p>
-          <label for="name"><b>För- och Efternamn:</b></label>
-        </p>
+      <form action="/booked"); method="post" onsubmit="alert('Din bokning är mottagen!');">
+        <p><label for="name"><b>För- och Efternamn:</b></label></p>
         <input class="br px1" id="name" name="name" type="text" size="50" />
-        <p>
-          <label for="mail"><b>Email:</b></label>
-          <input class="br px1" id="mail" type="email" size="50" />
-        </p>
-
-        <p>
-          <label for="ph"><b>Telefon:</b></label>
-        </p>
-        <input class="br px1" id="ph" type="tel" />
-        <p>
-          <label for="pax"><b>Antal personer i sällskapet:</b></label>
-        </p>
-        <input class="br px1" id="pax" type="number" list="defaultNumbers" />
+        <p><label for="mail"><b>Email:</b></label></p>
+        <input class="br px1" id="mail" name="email" type="email" size="50" />
+        <p><label for="ph"><b>Telefon:</b></label></p>
+        <input class="br px1" id="ph" name="tel" type="tel" />
+        <p><label for="pax"><b>Antal personer i sällskapet:</b></label></p>
+        <input class="br px1" id="pax" name="pax" type="number" list="defaultNumbers" />
         <span class="validity"></span>
-        <p>
-          <label for="comment"><b>Övrigt:</b></label>
-        </p>
-        <textarea
-          class="br px1"
-          id="comment"
-          rows="6"
-          cols="35"
-          minlength="2"
-          maxlength="500"
-        ></textarea>
+        <p><label for="comment"><b>Övrigt:</b></label></p>
+        <textarea class="br px1" id="comment" name="comment" rows="6" cols="35" minlength="2" maxlength="500"></textarea>
         <datalist id="defaultNumbers">
           <option value="1"></option>
           <option value="2"></option>
@@ -72,20 +46,13 @@
           <option value="9"></option>
           <option value="10"></option>
         </datalist>
+        <button class="butt butt2 br" style="vertical-align: middle"><span>Boka </span></button>
       </form>
     </div>
 
     <div class="kalender">
-      <input
-        class="br p1"
-        type="datetime-local"
-        id="datepicker"
-        required
-      /><br /><br />
-      <form onsubmit="alert('Din bokning är mottagen!');">
-        <button class="butt butt2 br" style="vertical-align: middle">
-          <span>Boka </span>
-        </button>
+      <input class="br p1" type="datetime-local" id="datepicker" required /><br /><br />
+      
         <script>
           inputfield = document.getElementById("datepicker");
           var date = new Date();
@@ -105,7 +72,7 @@
             date.getSeconds();
           inputfield.setAttribute("min", datestring);
         </script>
-      </form>
+      
       <div class="br p1 kalender">
         <p>
           Vill ni boka bord för mer än tio personer?<br />Ring eller maila oss

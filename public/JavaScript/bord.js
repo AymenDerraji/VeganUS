@@ -1,6 +1,5 @@
-myFunction = function () {      
-
-    
+myFunction = function () {   
+        
     let request = new XMLHttpRequest(); //ny förfrågan
     request.open('GET', '../bookings.json', true);
     request.onload = function(){
