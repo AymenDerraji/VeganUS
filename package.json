@@ -1,0 +1,22 @@
+{
+  "name": "veganus",
+  "version": "1.0.0",
+  "description": "Startfilen är VeganUs/index.html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrAymenDer/VeganUS.git"
+  },
+  "author": "Karin Eurenius",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrAymenDer/VeganUS/issues"
+  },
+  "homepage": "https://github.com/MrAymenDer/VeganUS#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
