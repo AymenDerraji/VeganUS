@@ -42,7 +42,7 @@ ul {
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, auto) repeat(2, 50px);
+  grid-template-columns: repeat(6, auto) repeat(2, 50px);
   grid-gap: 10px;
   justify-items: center;
   width: 100%;
