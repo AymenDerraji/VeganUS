@@ -1,10 +1,9 @@
+const { Console } = require("console");
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
 const fs = require("fs"); 
-const { Console } = require("console");
 app.use(express.static("public"));
-const port = 5000;
+const port = 4000;
 app.use(express.urlencoded({ extended: true }));
 const jsonFile = "public/bookings.json";
 
@@ -13,7 +12,7 @@ app.get("/", (req, res) => {
     console.log("app.get");
 }); 
 app.listen(port, () => {
-    console.log("Kör servern på localhost:5000");
+    console.log(`Kör servern på localhost:${port}`);
     });
 
 app.get("/meny", (req,res) => {
@@ -24,13 +23,12 @@ app.get("/bord", (req,res) => {
 });
 app.post("/booked", (req,res) => {
     res.sendFile(__dirname + "/public/HTML/bord.html"); 
-    console.log("2");
-    let name = req.body.name;
-    let email = req.body.email;
-    let tel = req.body.tel;
-    let pax = req.body.pax;
-    let comment = req.body.comment;
-    let cal = req.body.cal;
+    const name = req.body.name;
+    const email = req.body.email;
+    const tel = req.body.tel;
+    const pax = req.body.pax;
+    const comment = req.body.comment;
+    const cal = req.body.cal;
            
     let booking = {        
         name,
@@ -40,21 +38,35 @@ app.post("/booked", (req,res) => {
         comment,
         cal,
     }   
-
-    let readJsonFile = fs.readFileSync(jsonFile);
+console.log('booking',booking);
+    const readJsonFile = fs.readFileSync(jsonFile);
     let norm = JSON.parse(readJsonFile); 
     norm.push(booking);
     
-    let newF = JSON.stringify(norm);
+    const newF = JSON.stringify(norm);
     fs.writeFile(jsonFile, newF, (err) => {
         if (err) throw err;
     });
 
-    //res.send("<script>var timer = setTimeout(function() {window.location='http://localhost:5000/bord'}, 500);</script>");
 });
 app.get("/oppettider", (req,res) => {
     res.sendFile(__dirname + "/public/HTML/oppettider.html"); 
 });
 app.get("/recensioner", (req,res) => {
     res.sendFile(__dirname + "/public/HTML/recensioner.html"); 
+});
+app.get("/login", (req,res) => {
+    res.sendFile(__dirname + "/public/HTML/login.html"); 
+});
+app.post("/login", (req,res) => {
+    const name = req.body.name
+    const password = req.body.password
+    if (name === "VeganUs" && password === "lol123"){
+        res.sendFile(__dirname + "/public/HTML/oppettider.html"); //Lägger en admin sida imorgon.
+        console.log("Du är nu inloggad")
+        
+    }else {
+        res.sendFile(__dirname + "/public/HTML/login.html"); 
+        console.log("Inloggning misslyckad")
+    }
 });
