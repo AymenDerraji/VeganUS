@@ -40,7 +40,7 @@ app.post("/booked", (req,res) => {
     }   
 console.log('booking',booking);
     const readJsonFile = fs.readFileSync(jsonFile);
-    let norm = JSON.parse(readJsonFile); 
+     let norm = JSON.parse(readJsonFile); // testa med tom fil "bookings.json" inge data 
     norm.push(booking);
     
     const newF = JSON.stringify(norm);
@@ -62,11 +62,34 @@ app.post("/login", (req,res) => {
     const name = req.body.name
     const password = req.body.password
     if (name === "VeganUs" && password === "lol123"){
-        res.sendFile(__dirname + "/public/HTML/oppettider.html"); //Lägger en admin sida imorgon.
+        res.sendFile(__dirname + "/public/HTML/bookingList.html");
         console.log("Du är nu inloggad")
         
     }else {
         res.sendFile(__dirname + "/public/HTML/login.html"); 
         console.log("Inloggning misslyckad")
     }
+});
+app.get("/bookingList", (req, res) => {
+    //res.sendFile(__dirname + "/public/HTML/bookingList.html"); 
+
+fs.readFile("public/HTML/bookingList.html", function(err, htmlData) {
+    fs.readFile("public/bookings.json", (err, textData) => {    
+        if (err) throw err; // avbryt exekveringen om fel
+        if(textData.toString()){
+
+            let htmlText = htmlData.toString();
+            let myText = ''
+      
+            JSON.parse(textData.toString()).forEach((item)=>{
+                myText += `<tr><td>${item.name}</td><td>${item.email}</td><td>${item.tel}</td><td>${item.pax}</td><td>${item.comment}</td><td>${item.cal}</td></tr>`
+            })
+            
+            
+            let output = htmlText.replace(/Inga_Bokningar/, myText);
+            // skicka till klienten
+            res.send(output);
+        }
+    });
+})
 });

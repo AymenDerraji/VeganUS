@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../CSS/style.css">
-    <title>Logga in</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <title>BokningsLista</title>
   </head>
   <body>
     <nav class="navBar">
@@ -15,22 +15,36 @@
         <li><a href="/bord">Boka bord</a></li>
         <li><a href="/oppettider">Öppettider & kontakt</a></li>
         <li><a href="/recensioner">Recensioner</a></li>
-        <li><a href="/login">Logga in</a></li>
-        <li><a href="http://www.facebook.se"><img width="25" src="../images/fbLogo.png" alt="FB Logo"/></a></li>
-        <li><a href="http://instagram.com"><img width="25" src="../images/instaLogo.png" alt="Insta Logo"/></a></li>
+        <li><a href="/login">Logga ut</a></li>
+        <li>
+          <a href="http://www.facebook.se"
+            ><img width="25" src="../images/fbLogo.png" alt="FB Logo"
+          /></a>
+        </li>
+        <li>
+          <a href="http://instagram.com"
+            ><img width="25" src="../images/instaLogo.png" alt="Insta Logo"
+          /></a>
+        </li>
       </ul>
     </nav>
-    <h1 class="type">Login</h1>
+    <h1 class="type">Bookningar</h1>
     <div class="big">
-      <div class="bookingform">
-      <form action="/login"); method="post">
-        <p><label for="name"><b>AnvänderNamn:</b></label></p>
-        <input class="br px1" id="name" name="name" type="text" size="50" />
-        <p><label for="password"><b>Lösenord:</b></label></p>
-        <input class="br px1" id="password" name="password" type="password" size="50" /></form></br><br/>
-        <a class="butt butt2 br " href="/bookingList" type="button" style="vertical-align: middle">Logga in</a>
-      </form>
-    </div>     
+      <table
+        class=""
+        style="width: 100%; border: 1px solid #000; background: #00000048"
+      >
+        <tr>
+          <th>Namn</th>
+          <th>Email</th>
+          <th>Telefon</th>
+          <th>Antal</th>
+          <th>Kommentar</th>
+          <th>Datum</th>
+        </tr>
+        Inga_Bokningar
+      </table>
+    </div>
     <footer class="fot">
       <a href="https://www.ubereats.com/se"
         ><img width="25" alt="uber" src="../images/ubereats.png"
