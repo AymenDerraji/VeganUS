@@ -303,3 +303,9 @@ th {
 tr:nth-child(even) {
   background-color: #6464646e;
 }
+.login {
+  width: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
